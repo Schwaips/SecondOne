@@ -20,7 +20,9 @@ import {
 import ImageWithState from '../components/ImageWithState';
 import Compteur from '../components/Compteur';
 import Section from '../components/Section';
-const Home = () => {
+
+
+const Home = ({ navigation }) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

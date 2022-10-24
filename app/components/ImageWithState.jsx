@@ -14,16 +14,18 @@ function ImageWithState() {
   const urlNeilDeGrassImage = 'https://cdn.britannica.com/06/202006-050-64C85CC7/Neil-deGrasse-Tyson-2018.jpg';
 
   const uriImage = isCharlie ? urlCharlieImage : urlNeilDeGrassImage;
+
+  const viewPictures = <View style={stylesImage.container}>
+    <Image source={{ uri: uriImage }} style={stylesImage.imageCharlie} />
+    <Text style={stylesImage.marginTopBottom10px}>
+      Hello I am {isCharlie ? 'Charlie' : '...wait...who is that ?'}
+    </Text>
+    <Button
+      onPress={() => (isCharlie ? setIsCharlie(false) : setIsCharlie(true))}
+      title="Is it really me ?" />
+  </View>;
   return (
-    <View style={stylesImage.container}>
-      <Image source={{ uri: uriImage }} style={stylesImage.imageCharlie} />
-      <Text style={stylesImage.marginTopBottom10px}>
-        Hello I am {isCharlie ? 'Charlie' : '...wait...who is that ?'}
-      </Text>
-      <Button
-        onPress={() => (isCharlie ? setIsCharlie(false) : setIsCharlie(true))}
-        title="Is it really me ?" />
-    </View>
+    viewPictures
   );
 }
 

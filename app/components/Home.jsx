@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   Text,
@@ -19,6 +19,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import ImageWithState from '../components/ImageWithState';
+import ButtonPrimary from '../components/buttons/ButtonPrimary';
 import Compteur from '../components/Compteur';
 import Section from '../components/Section';
 import { useNavigation } from '@react-navigation/native';
@@ -32,7 +33,6 @@ const Home = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-
   return(
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -44,10 +44,14 @@ const Home = () => {
         <Header />
         <ImageWithState name="Charlie" />
         <Compteur />
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
+        <View style={{margin: 10}}>
+          <ButtonPrimary
+            title="Go to Details"
+            onPress={() => navigation.navigate('Details', {
+              otherParam: 'anything you want here',
+            })}
+          />
+        </View>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

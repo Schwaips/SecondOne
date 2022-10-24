@@ -22,10 +22,6 @@ import { stylesSection } from '../stylesheets/stylesheet_section';
 export default function Section({ children, title }) {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <View style={stylesSection.sectionContainer}>
       <Text
